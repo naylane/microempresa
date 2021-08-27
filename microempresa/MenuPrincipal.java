@@ -12,9 +12,9 @@ public class MenuPrincipal {
 	
 	public MenuPrincipal() {
 		this.ler = new Scanner(System.in);
-		InterfaceCliente interfaceCliente;
-		InterfaceProduto interfaceProduto;
-		InterfaceVenda interfaceVenda;
+		this.interfaceCliente = new InterfaceCliente(this.ler);
+		this.interfaceProduto = new InterfaceProduto(this.ler);
+		this.interfaceVenda = new InterfaceVenda(this.ler);
 	}
 
 	
@@ -34,13 +34,13 @@ public class MenuPrincipal {
 			
 			switch(opcao) {
 				case 1: 
-			
+					this.interfaceCliente.gerenciarCliente();
 					break;
 				case 2:
-			
+					this.interfaceProduto.gerenciarProduto();
 					break;
 				case 3:
-			
+					this.interfaceVenda.gerenciarVenda();
 					break;
 			}
 		

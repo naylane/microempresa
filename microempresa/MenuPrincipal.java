@@ -10,11 +10,11 @@ public class MenuPrincipal {
 	private Scanner ler;
 	
 	
-	public MenuPrincipal() {
+	public MenuPrincipal(RepositorioCliente repositorioCliente, RepositorioProduto repositorioProduto, RepositorioVenda repositorioVenda) {
 		this.ler = new Scanner(System.in);
-		this.interfaceCliente = new InterfaceCliente(this.ler);
-		this.interfaceProduto = new InterfaceProduto(this.ler);
-		this.interfaceVenda = new InterfaceVenda(this.ler);
+		this.interfaceCliente = new InterfaceCliente(repositorioCliente, ler);
+		this.interfaceProduto = new InterfaceProduto(repositorioProduto, ler);
+		this.interfaceVenda = new InterfaceVenda(repositorioVenda, ler);
 	}
 
 	
@@ -43,12 +43,8 @@ public class MenuPrincipal {
 					this.interfaceVenda.gerenciarVenda();
 					break;
 			}
-		
 		}while (opcao!=0);
 		
-		
-		
-		
 	}
-
+	
 }

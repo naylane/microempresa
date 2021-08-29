@@ -18,7 +18,7 @@ public class MenuPrincipal {
 	}
 
 	
-	public void iniciarGerenciamento(){
+	public void iniciarGerenciamento() {
 
 		int opcao;
 		

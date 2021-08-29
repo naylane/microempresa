@@ -3,11 +3,10 @@ package microempresa;
 public class Produto {
 	
 	String nomeDoProduto;
-	int codigo;
-	int quantidade;
 	int preco;
-	date dataDeValidade;
-	
+	int quantidade;
+	int codigo;
+
 	private static int contadorDeProduto;
 	
 	public Produto(String nomeDoProduto, int quantidade, int preco){

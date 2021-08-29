@@ -17,15 +17,13 @@ public class RepositorioProduto {
 	}
 	
 	
-	public Produto adicionarProduto(Produto produto) {
+	public void adicionarProduto(Produto produto) {
 		this.listaDeProdutos.add(produto);
-		return null;
 	}
 	
 	
-	public Produto removerProduto(Produto produto) {
+	public void removerProduto(Produto produto) {
 		this.listaDeProdutos.remove(produto);
-		return null;
 	}
 
 	

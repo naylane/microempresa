@@ -3,8 +3,8 @@ package microempresa;
 public class Produto {
 	
 	String nomeDoProduto;
-	int preco;
 	int quantidade;
+	int preco;
 	int codigo;
 
 	private static int contadorDeProduto;
@@ -21,7 +21,19 @@ public class Produto {
 	}
 	
 	public int getCodigo() {
-		
+		return this.codigo;
+	}
+	
+	public String nomeDoProduto() {
+		return this.nomeDoProduto;
+	}
+	
+	public int quantidade() {
+		return this.quantidade;
+	}
+	
+	public int preco() {
+		return this.preco;
 	}
 
 }

@@ -8,7 +8,7 @@ public class RepositorioProduto {
 	private List<Produto>listaDeProdutos;
 	
 	
-	public Produto selecionarProduto(int codigo) { // getProduto
+	public Produto getProduto(int codigo) {
 		for (Produto produto : this.listaDeProdutos) {
 			if(produto.getCodigo() == codigo) {
 				return produto;
@@ -25,6 +25,17 @@ public class RepositorioProduto {
 	public void removerProduto(Produto produto) {
 		this.listaDeProdutos.remove(produto);
 	}
+	
+	
+	public void editarProduto() {
+		
+	}
 
+	
+	public List<Produto> exibirTodosProdutos() {
+		return this.listaDeProdutos;
+	}
+	
+	
 	
 }

@@ -57,18 +57,72 @@ public class InterfaceVenda {
 		int valor;
 		
 		do {
-			System.out.println("Qual o valor da venda que deseja adicionar?");
+			System.out.println("Qual o código da venda que deseja adicionar?");
+			codigo = ler.nextInt();
+			System.out.println("Digite o valor da venda:");
 			valor = ler.nextInt();
-			
-			
+			System.out.println("Por favor, confirme os dados a seguir:");
+			System.out.println("Código: " + codigo + " Valor da venda: " + valor);
+			System.out.println("Se os dados estão corretos, digite 'sim'. Para cancelar a ação, digite 'cancelar'.");
+			String respostaDeConfirmacao = ler.nextLine();
+			confirmacao=respostaDeConfirmacao.equalsIgnoreCase("sim");
+			operacaoCancelada = respostaDeConfirmacao.equalsIgnoreCase("cancelar");
 		}while(!(confirmacao || operacaoCancelada));
 		
+		if(confirmacao) {
+			Venda venda = null;
+			venda = new Venda(codigo, valor);
+			this.repositorioVenda.adicionarVenda(venda);
+		}	
+	}
+	
+	
+	private Venda selecionarVenda() {	
+		int codigo;
+		Venda vendaSelecionada;
+		boolean repete=false;
 		
-		
+		do {
+			System.out.println("Digite o codigo da venda:");
+			codigo = this.ler.nextInt();
+			vendaSelecionada = this.repositorioVenda.getVenda(codigo);
+			
+			if(vendaSelecionada==null) {
+				System.out.println("Venda não encontrada. Se deseja tentar novamente, digite 'sim'");
+				String respostaDeConfirmacao = ler.nextLine();
+				confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
+				if(confirmacao) {
+					repete=true;
+				}else {
+					repete=false;
+				}
+			}else {
+				repete=false;
+			}
+		}while(repete);	
+		return vendaSelecionada;
 	}
 	
 	
 	private void removerVenda() {
+		Venda vendaSelecionada = this.selecionarVenda();
+		
+		
+		if(vendaSelecionada!=null) {
+			
+			do {
+				System.out.println("Tem certeza que deseja remover essa venda?");
+				System.out.println("Digite 'sim' para remover ou 'cancelar' para cancelar a ação.");
+				String respostaDeConfirmacao = ler.nextLine();
+				confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
+				operacaoCancelada = respostaDeConfirmacao.equalsIgnoreCase("cancelar");
+			}while(!(confirmacao || operacaoCancelada));
+		}
+		
+		if(confirmacao) {
+			this.repositorioVenda.removerVenda(vendaSelecionada);
+			System.out.println("Venda removida com sucesso.");
+		}
 		
 	}
 	

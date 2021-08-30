@@ -2,10 +2,10 @@ package microempresa;
 
 public class Produto {
 	
-	String nomeDoProduto;
-	int quantidade;
-	int preco;
-	int codigo;
+	private String nomeDoProduto;
+	private int quantidade;
+	private int preco;
+	private int codigo;
 
 	private static int contadorDeProduto;
 	

@@ -12,7 +12,7 @@ public class Venda {
 	
 	private static int numeroDeVendasCriadas=0;
 	
-	public Venda() {
+	public Venda(int codigo, int valor) {
 		this.codigo=gerarCodigo();
 		linhaDeVendas=new ArrayList<>();
 	}
@@ -31,6 +31,7 @@ public class Venda {
 		valor=somaTotal;
 		dataDeEmissao=new Date();
 	}
+	
 	public int getCodigo() {
 		return codigo;
 	}

@@ -10,7 +10,7 @@ public class MenuPrincipal {
 	private Scanner ler;
 	
 	
-	public MenuPrincipal(RepositorioCliente repositorioCliente, RepositorioProduto repositorioProduto, RepositorioVenda repositorioVenda) {
+	public MenuPrincipal(RepositorioClientes repositorioCliente, RepositorioProduto repositorioProduto, RepositorioVenda repositorioVenda) {
 		this.ler = new Scanner(System.in);
 		this.interfaceCliente = new InterfaceCliente(repositorioCliente, ler);
 		this.interfaceProduto = new InterfaceProduto(repositorioProduto, ler);

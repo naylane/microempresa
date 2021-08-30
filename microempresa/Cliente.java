@@ -1,9 +1,9 @@
 package microempresa;
 
 public class Cliente {
-	
-	public Cliente ( String nomeDeUsuario, long numeroDeCelular, long cpf, String endereco) {
-		this.nomeDeUsuario = nomeDeUsuario;
+
+	public Cliente ( String nomeDoCliente, long numeroDeCelular, long cpf, String endereco) {
+		this.nomeDoCliente = nomeDoCliente;
 		this.numeroDeCelular = numeroDeCelular;
 		this.cpf = cpf;
 		this.endereco = endereco;
@@ -12,13 +12,13 @@ public class Cliente {
 	
 	private static long contadorDeClientes;
 	private long codigoDoCliente;
-	private String nomeDeUsuario;
+	private String nomeDoCliente;
 	private long numeroDeCelular;
 	private long cpf;
 	private String endereco;
 	
-	private String getNomeDeUsuario() {
-		return nomeDeUsuario;
+	private String getNomeDoCliente() {
+		return nomeDoCliente;
 		
 	}
 	

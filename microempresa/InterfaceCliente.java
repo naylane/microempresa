@@ -39,7 +39,7 @@ public class InterfaceCliente {
 			
 	}
 	
-	public static Cliente selecionarCliente() {
+	public Cliente selecionarCliente() {
 		
 	}
 	
@@ -63,13 +63,52 @@ public class InterfaceCliente {
 			numeroDeCelular = ler.nextLong();
 			System.out.println("Deseja adicionar esta conta? ");
 			String resposta = ler.nextLine();
+			operacaoConfirmada = resposta.equalsIgnoreCase("sim");
+			operacaoCancelada = resposta.equalsIgnoreCase("não");
 			
-		}while{(!(operacaoConfirmada || operacaoCancelada));
+		}while(!(operacaoConfirmada || operacaoCancelada));
 		
+		if (operacaoConfirmada) {
+			Cliente cliente = null;
+			cliente = new Cliente(nomeDoCliente, cpf, numeroDeCelular, endereco);
+			this.repositorioClientes.adicionarCliente(cliente);
+		}
 		
 	}
 	
-	public InterfaceCliente removerCliente() {
+	public void removerCliente() {
+		
+		boolean operacaoCancelada=false;
+		boolean operacaoConfirmada;
+		
+		String nomeDoCliente;
+		long cpf;
+		String endereco;
+		long numeroDeCelular;
+		
+		do {
+			System.out.println("Digite o nome do Cliente/Usuário: ");
+			nomeDoCliente = ler.nextLine();
+			System.out.println("Digite o seu CPF: ");
+			cpf = ler.nextLong();
+			System.out.println("Digite o seu endereço: ");
+			endereco = ler.nextLine();
+			System.out.println("Digite o número de celular: ");
+			numeroDeCelular = ler.nextLong();
+			System.out.println("Gostaria de remover o cliente?");
+			String resposta = ler.nextLine();
+			operacaoConfirmada = resposta.equalsIgnoreCase("Sim");
+			operacaoCancelada = resposta.equalsIgnoreCase("não");
+		}while(!(operacaoConfirmada || operacaoCancelada));
+		
+		if (operacaoConfirmada) {
+			Cliente cliente = null;
+			cliente = new Cliente(nomeDoCliente, cpf, numeroDeCelular, endereco);
+			this.repositorioClientes.removerCliente(cliente);
+			
+	
+			
+		}
 		
 	}
 	

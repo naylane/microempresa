@@ -6,9 +6,9 @@ public class RepositorioClientes {
 	
 	private List <Cliente> listaDeClientes;
 	
-	public Cliente getCliente(long codigoDeCliente) {
+	public Cliente getCliente(long codigoDoCliente) {
 		for (Cliente cliente : this.listaDeClientes) {
-			if (cliente.getCodigoDoCliente() == codigoDeCliente) {
+			if (cliente.getCodigoDoCliente() == codigoDoCliente) {
 				return cliente;
 			}	
 		} throw new IllegalArgumentException("Cliente/usuário não encontrado.");

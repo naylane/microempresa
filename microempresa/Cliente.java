@@ -17,22 +17,22 @@ public class Cliente {
 	private long cpf;
 	private String endereco;
 	
-	private String getNomeDoCliente() {
+	public String getNomeDoCliente() {
 		return nomeDoCliente;
 		
 	}
 	
-	private long getNumeroDeCelular() {
+	public long getNumeroDeCelular() {
 		return numeroDeCelular;
 		
 	}
 	
-	private String getEndereco() {
+	public String getEndereco() {
 		return endereco;
 		
 	}
 	
-	private long getCpf() {
+	public long getCpf() {
 		return cpf;
 		
 	}

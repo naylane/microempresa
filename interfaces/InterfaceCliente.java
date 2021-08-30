@@ -1,10 +1,11 @@
-<<<<<<< HEAD:microempresa/InterfaceCliente.java
-package microempresa;
+package interfaces;
 
 import java.util.Scanner;
-=======
-package interfaces;
->>>>>>> main:interfaces/InterfaceCliente.java
+
+import microempresa.Cliente;
+import microempresa.RepositorioClientes;
+
+
 
 public class InterfaceCliente {
 	
@@ -44,13 +45,37 @@ public class InterfaceCliente {
 	}
 	
 	public Cliente selecionarCliente() {
+		long codigoDoCliente;
+		Cliente clienteSelecionado;
+        boolean repete=false;
 		
+		do {
+			System.out.println("Digite o codigo do Usuário/cliente: ");
+			codigoDoCliente = this.ler.nextLong();
+			clienteSelecionado = this.repositorioClientes.getCliente(codigoDoCliente);
+			
+			if(clienteSelecionado==null) {
+				System.out.println("Cliente/usuário não encontrado. Se deseja tentar novamente, digite 'sim'");
+				String respostaDeConfirmacao = ler.nextLine();
+				operacaoConfirmada = respostaDeConfirmacao.equalsIgnoreCase("sim");
+				if(operacaoConfirmada) {
+					repete=true;
+				}else {
+					repete=false;
+				}
+			}else {
+				repete=false;
+			}
+		}while(repete);	
+		return clienteSelecionado;
 	}
+		
+		
 	
 	boolean operacaoCancelada=false;
 	boolean operacaoConfirmada;
 	
-	private void adicionarCliente() {
+	public void adicionarCliente() {
 		String nomeDoCliente;
 		long cpf;
 		String endereco;
@@ -113,6 +138,10 @@ public class InterfaceCliente {
 	
 			
 		}
+		
+	}
+	
+	public Cliente editarCliente() {
 		
 	}
 	

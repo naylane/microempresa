@@ -1,5 +1,6 @@
 package repositorios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import microempresa.Produto;
@@ -8,6 +9,10 @@ public class RepositorioProduto {
 	
 	
 	private List<Produto>listaDeProdutos;
+	
+	public RepositorioProduto() {
+		this.listaDeProdutos = new ArrayList<>();
+	}
 	
 	
 	public Produto getProduto(int codigo) {
@@ -28,14 +33,8 @@ public class RepositorioProduto {
 	public void removerProduto(Produto produto) {
 		this.listaDeProdutos.remove(produto);
 	}
-	
-	
-	public void editarQuantidade() {
-	
 
-	}
 
-	
 	public List<Produto> exibirTodosProdutos() {
 		return this.listaDeProdutos;
 	}

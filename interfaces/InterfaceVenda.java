@@ -59,10 +59,12 @@ public class InterfaceVenda {
 		do {
 			System.out.println("Qual o código da venda que deseja adicionar?");
 			codigo = ler.nextInt();
-			System.out.println("Digite o valor da venda:");
+			ler.nextLine();
+			System.out.println("Digite o valor total da venda:");
 			valor = ler.nextInt();
+			ler.nextLine();
 			System.out.println("Por favor, confirme os dados a seguir:");
-			System.out.println("Código: " + codigo + " Valor da venda: " + valor);
+			System.out.println("Código: " + codigo + "; Valor total: " + valor);
 			System.out.println("Se os dados estão corretos, digite 'sim'. Para cancelar a ação, digite 'cancelar'.");
 			String respostaDeConfirmacao = ler.nextLine();
 			confirmacao=respostaDeConfirmacao.equalsIgnoreCase("sim");
@@ -73,6 +75,7 @@ public class InterfaceVenda {
 			Venda venda = null;
 			venda = new Venda(codigo, valor);
 			this.repositorioVenda.adicionarVenda(venda);
+			System.out.println("Venda adicionada com sucesso!");
 		}	
 	}
 	
@@ -85,6 +88,7 @@ public class InterfaceVenda {
 		do {
 			System.out.println("Digite o codigo da venda:");
 			codigo = this.ler.nextInt();
+			ler.nextLine();
 			vendaSelecionada = this.repositorioVenda.getVenda(codigo);
 			
 			if(vendaSelecionada==null) {

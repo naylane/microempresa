@@ -36,4 +36,12 @@ public class Produto {
 		return this.preco;
 	}
 
+	public void setPreco(int precoNovo) {
+
+	}
+	
+	public void setQuantidade(int quantidadeNova) {
+		
+	}
+
 }

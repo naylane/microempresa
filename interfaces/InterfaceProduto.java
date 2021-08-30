@@ -34,6 +34,7 @@ public class InterfaceProduto {
 			System.out.println("0- Voltar para o menu principal");	
 			System.out.println("Selecione a opção desejada:");
 			opcao = ler.nextInt();
+			ler.nextLine();
 			
 			switch(opcao) {
 				case 1:
@@ -67,10 +68,12 @@ public class InterfaceProduto {
 			nomeDoProduto = ler.nextLine();
 			System.out.println("Digite o preço da unidade:");
 			preco = ler.nextInt();
+			ler.nextLine();
 			System.out.println("Digite a quantidade do produto:");
 			quantidade = ler.nextInt();
+			ler.nextLine();
 			System.out.println("Por favor, confirme os dados a seguir:");
-			System.out.println("Produto: " + nomeDoProduto + " Preço: " + preco + " Quantidade: " + quantidade);
+			System.out.println("Produto: " + nomeDoProduto + "; Preço: " + preco + "; Quantidade: " + quantidade);
 			System.out.println("Se os dados estão corretos, digite 'sim'. Para cancelar a ação, digite 'cancelar'");
 			String respostaDeConfirmacao = ler.nextLine();
 			confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
@@ -81,6 +84,7 @@ public class InterfaceProduto {
 			Produto produto = null;
 			produto = new Produto(nomeDoProduto, preco, quantidade);
 			this.repositorioProduto.adicionarProduto(produto);
+			System.out.println("Produto adicionado com sucesso!");
 		}
 	}
 	
@@ -93,6 +97,7 @@ public class InterfaceProduto {
 		do {
 			System.out.println("Digite o codigo do produto:");
 			codigo = this.ler.nextInt();
+			ler.nextLine();
 			produtoSelecionado = this.repositorioProduto.getProduto(codigo);
 			
 			if(produtoSelecionado==null) {
@@ -164,12 +169,26 @@ public class InterfaceProduto {
 
 	
 	private void editarQuantidade() {
+		int quantidadeNova;
+		Produto produtoSelecionado = this.selecionarProduto();
 		
+		System.out.println("Digite a nova quantidade que deseja alterar:");
+		quantidadeNova = ler.nextInt();
+		ler.nextLine();
+		produtoSelecionado.setQuantidade(quantidadeNova);
+		System.out.println("A quantidade do produto foi alterada com sucesso!");
 	}
 	
 		
 	private void editarPreco() {
+			int precoNovo;
+			Produto produtoSelecionado = this.selecionarProduto();
 			
+			System.out.println("Digite o novo preço que deseja alterar:");
+			precoNovo = ler.nextInt();
+			ler.nextLine();
+			produtoSelecionado.setPreco(precoNovo);
+			System.out.println("O preço do produto foi alterado com sucesso!");	
 	}
 	
 		

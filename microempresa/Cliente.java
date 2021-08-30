@@ -1,29 +1,49 @@
-package microempresa.microempresa;
+package microempresa;
 
 public class Cliente {
 	
-	private String nomeDeusuario;
-	private int numeroDeCelular;
+	public Cliente ( String nomeDeUsuario, long numeroDeCelular, long cpf, String endereco) {
+		this.nomeDeUsuario = nomeDeUsuario;
+		this.numeroDeCelular = numeroDeCelular;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.codigoDoCliente = gerarCodigo();
+	}
+	
+	private static long contadorDeClientes;
+	private long codigoDoCliente;
+	private String nomeDeUsuario;
+	private long numeroDeCelular;
+	private long cpf;
 	private String endereco;
-	private int codigoDeCliente;
 	
-	private String nomeDeUsuario() {
+	private String getNomeDeUsuario() {
+		return nomeDeUsuario;
 		
 	}
 	
-	private int numeroDeCelular() {
+	private long getNumeroDeCelular() {
+		return numeroDeCelular;
 		
 	}
 	
-	private String endereco() {
+	private String getEndereco() {
+		return endereco;
 		
 	}
 	
-	private long cpf() {
+	private long getCpf() {
+		return cpf;
 		
 	}
 	
-	private int codigoDeCliente() {
+	public long getCodigoDoCliente() {
+		return codigoDoCliente;
+		
+	}
+	
+	public static long gerarCodigo() {
+		return contadorDeClientes++;
 		
 	}
 

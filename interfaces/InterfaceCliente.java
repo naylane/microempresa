@@ -141,9 +141,39 @@ public class InterfaceCliente {
 		
 	}
 	
-	public Cliente editarCliente() {
+	public void editarCliente() {
+		
+		int opcao=0;
+		Cliente clienteSelecionado = this.selecionarCliente();
+		
+		if(clienteSelecionado!=null) { // usuário não cancelou
+			
+			do {
+				System.out.println("Essas são os dados que você pode editar:");
+				System.out.println("1- Editar nome");
+				System.out.println("2- Editar o endereço");
+				System.out.println("0- Sair");
+				
+				switch(opcao) {
+					case 1:
+						editarNome();
+						break;
+					case 2:
+						editarOEndereco();
+						break;
+				}
+
+			}while(opcao!=0);	
+		}
+
+	}
+
+	private Cliente editarNome() {
 		
 	}
 	
-
-}
+	private Cliente editarOEndereco() {
+		
+	}
+		
+	}

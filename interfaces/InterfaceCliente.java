@@ -168,12 +168,12 @@ public class InterfaceCliente {
 
 	}
 
-	private Cliente editarNome() {
+	private void editarNome() {
 		
 	}
 	
-	private Cliente editarOEndereco() {
-		
+	private void editarOEndereco() {
+	
 	}
 		
 	}

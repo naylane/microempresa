@@ -28,7 +28,7 @@ public class InterfaceProduto {
 			System.out.println("---- Gereciamento de Produto ----");
 			System.out.println("Essas são as opções:");
 			System.out.println("1- Adicionar Produto");
-			System.out.println("2- Selecionar Produto");
+			System.out.println("2- Remover Produto");
 			System.out.println("3- Editar Produto");
 			System.out.println("4- Exibir todos os produtos");
 			System.out.println("0- Voltar para o menu principal");	
@@ -40,7 +40,7 @@ public class InterfaceProduto {
 					adicionarProduto();
 					break;
 				case 2:
-					selecionarProduto();
+					removerProduto();
 					break;	
 				case 3:
 					editarProduto();
@@ -109,6 +109,29 @@ public class InterfaceProduto {
 			}
 		}while(repete);	
 		return produtoSelecionado;
+	}
+	
+	
+	private void removerProduto(){
+		
+		Produto produtoSelecionado = this.selecionarProduto();
+		
+		if(produtoSelecionado!=null) {
+			
+			do {
+				System.out.println("Tem certeza que deseja remover essa produto?");
+				System.out.println("Digite 'sim' para remover ou 'cancelar' para cancelar a ação.");
+				String respostaDeConfirmacao = ler.nextLine();
+				confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
+				operacaoCancelada = respostaDeConfirmacao.equalsIgnoreCase("cancelar");
+			}while(!(confirmacao || operacaoCancelada));
+		}
+		
+		if(confirmacao) {
+			this.repositorioProduto.removerProduto(produtoSelecionado);
+			System.out.println("Produto removido com sucesso.");
+		}
+		
 	}
 	
 	

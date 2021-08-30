@@ -1,6 +1,8 @@
-package microempresa;
+package repositorios;
 
 import java.util.List;
+
+import microempresa.Produto;
 
 public class RepositorioProduto {
 	
@@ -13,7 +15,8 @@ public class RepositorioProduto {
 			if(produto.getCodigo() == codigo) {
 				return produto;
 			}
-		} throw new RuntimeException("Produto não encontrado.");
+		} 
+		throw new IllegalArgumentException("Produto não encontrado.");
 	}
 	
 	
@@ -27,8 +30,9 @@ public class RepositorioProduto {
 	}
 	
 	
-	public void editarProduto() {
-		
+	public void editarQuantidade() {
+	
+
 	}
 
 	

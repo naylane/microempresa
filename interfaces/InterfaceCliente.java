@@ -1,6 +1,10 @@
+<<<<<<< HEAD:microempresa/InterfaceCliente.java
 package microempresa;
 
 import java.util.Scanner;
+=======
+package interfaces;
+>>>>>>> main:interfaces/InterfaceCliente.java
 
 public class InterfaceCliente {
 	

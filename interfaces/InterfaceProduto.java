@@ -1,7 +1,10 @@
-package microempresa;
+package interfaces;
 
 import java.util.List;
 import java.util.Scanner;
+
+import microempresa.Produto;
+import repositorios.RepositorioProduto;
 
 public class InterfaceProduto {
 	
@@ -110,10 +113,12 @@ public class InterfaceProduto {
 	
 	
 	private void editarProduto() {
-		int opcao;
+		
+		int opcao=0;
 		Produto produtoSelecionado = this.selecionarProduto();
 		
 		if(produtoSelecionado!=null) { // usuário não cancelou
+			
 			do {
 				System.out.println("Essas são os dados que você pode editar:");
 				System.out.println("1- Editar a quantidade");
@@ -122,25 +127,29 @@ public class InterfaceProduto {
 				
 				switch(opcao) {
 					case 1:
-				
-			
+						editarQuantidade();
+						break;
+					case 2:
+						editarPreco();
+						break;
 				}
-				
-				
-				
-			}while(opcao!=0);
-			
-			
-			
-			
-			
+
+			}while(opcao!=0);	
 		}
-		
-		
+
+	}
+
+	
+	private void editarQuantidade() {
 		
 	}
 	
+		
+	private void editarPreco() {
+			
+	}
 	
+		
 	private List<Produto> exibirTodosProdutos() {
 		System.out.println("Esses são todos os atuais produtos cadastrados no sistema:");
 		return this.repositorioProduto.exibirTodosProdutos();

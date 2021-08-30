@@ -24,15 +24,15 @@ public class Produto {
 		return this.codigo;
 	}
 	
-	public String nomeDoProduto() {
+	public String getNomeDoProduto() {
 		return this.nomeDoProduto;
 	}
 	
-	public int quantidade() {
+	public int getQuantidade() {
 		return this.quantidade;
 	}
 	
-	public int preco() {
+	public int getPreco() {
 		return this.preco;
 	}
 

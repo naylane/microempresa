@@ -17,4 +17,8 @@ public class LinhaDeVenda {
 		return this.produto;
 	}
 	
+	public int getPreco() {
+		return this.produto.getPreco();
+	}
+	
 }

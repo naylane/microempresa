@@ -1,4 +1,4 @@
-package microempresa.microempresa;
+package interfaces;
 
 public class InterfaceCliente {
 	

@@ -2,8 +2,15 @@ package microempresa;
 
 import java.util.Scanner;
 
-public class MenuPrincipal {
+import interfaces.InterfaceCliente;
+import interfaces.InterfaceProduto;
+import interfaces.InterfaceVenda;
+import repositorios.RepositorioProduto;
+import repositorios.RepositorioVenda;
 
+public class MenuPrincipal {
+	
+	
 	private InterfaceCliente interfaceCliente;
 	private InterfaceProduto interfaceProduto;
 	private InterfaceVenda interfaceVenda;
@@ -17,12 +24,12 @@ public class MenuPrincipal {
 		this.interfaceVenda = new InterfaceVenda(repositorioVenda, ler);
 	}
 
-	
+
 	public void iniciarGerenciamento() {
 
 		int opcao;
 		
-		do {
+		do {	
 			System.out.println("---- Menu Principal ----");
 			System.out.println("Essas são as opçoes de gerenciamento do menu:");
 			System.out.println("1- Clientes");
@@ -48,3 +55,5 @@ public class MenuPrincipal {
 	}
 	
 }
+	
+

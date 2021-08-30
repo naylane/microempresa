@@ -25,7 +25,7 @@ public class Venda {
 		int somaTotal=0;
 		for (int i = 0; i < linhaDeVendas.size(); i++) {
 			LinhaDeVenda linhaDeVendai = linhaDeVendas.get(i);
-			int valorDaLinhaDeVendaSelecionada=linhaDeVendai.getProduto().preco()*linhaDeVendai.getQuantidade();
+			int valorDaLinhaDeVendaSelecionada=linhaDeVendai.getProduto().getPreco()*linhaDeVendai.getQuantidade();
 			somaTotal+=valorDaLinhaDeVendaSelecionada;
 		}
 		valor=somaTotal;

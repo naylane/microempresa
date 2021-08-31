@@ -7,7 +7,6 @@ import microempresa.Produto;
 
 public class RepositorioProduto {
 	
-	
 	private List<Produto>listaDeProdutos;
 	
 	public RepositorioProduto() {
@@ -36,7 +35,7 @@ public class RepositorioProduto {
 
 
 	public List<Produto> exibirTodosProdutos() {
-		return this.listaDeProdutos;
+		return new ArrayList<>(listaDeProdutos);
 	}
 	
 	

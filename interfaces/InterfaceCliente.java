@@ -13,6 +13,7 @@ public class InterfaceCliente {
 	private Scanner ler;
 	
 	public InterfaceCliente (RepositorioClientes repositorioCliente, Scanner ler) {
+		this.repositorioClientes=repositorioCliente;
 		this.ler = ler;	
 	}
 	
@@ -28,6 +29,7 @@ public class InterfaceCliente {
 			System.out.println("0- Voltar para o menu principal");	
 			System.out.println("Selecione a opção desejada:");
 			opcao = ler.nextInt();
+			ler.nextLine();
 			switch(opcao) {
 			
 			case 1:
@@ -52,6 +54,7 @@ public class InterfaceCliente {
 		do {
 			System.out.println("Digite o codigo do Usuário/cliente: ");
 			codigoDoCliente = this.ler.nextLong();
+			ler.nextLine();
 			clienteSelecionado = this.repositorioClientes.getCliente(codigoDoCliente);
 			
 			if(clienteSelecionado==null) {
@@ -86,10 +89,12 @@ public class InterfaceCliente {
 			nomeDoCliente = ler.nextLine();
 			System.out.println("Digite o seu CPF: ");
 			cpf = ler.nextLong();
+			ler.nextLine();
 			System.out.println("Digite o seu endereço: ");
 			endereco = ler.nextLine();
 			System.out.println("Digite o número de celular: ");
 			numeroDeCelular = ler.nextLong();
+			ler.nextLine();
 			System.out.println("Deseja adicionar esta conta? ");
 			String resposta = ler.nextLine();
 			operacaoConfirmada = resposta.equalsIgnoreCase("sim");
@@ -120,10 +125,12 @@ public class InterfaceCliente {
 			nomeDoCliente = ler.nextLine();
 			System.out.println("Digite o seu CPF: ");
 			cpf = ler.nextLong();
+			ler.nextLine();
 			System.out.println("Digite o seu endereço: ");
 			endereco = ler.nextLine();
 			System.out.println("Digite o número de celular: ");
 			numeroDeCelular = ler.nextLong();
+			ler.nextLine();
 			System.out.println("Gostaria de remover o cliente?");
 			String resposta = ler.nextLine();
 			operacaoConfirmada = resposta.equalsIgnoreCase("Sim");
@@ -153,7 +160,9 @@ public class InterfaceCliente {
 				System.out.println("1- Editar nome");
 				System.out.println("2- Editar o endereço");
 				System.out.println("0- Sair");
-				
+				System.out.println("Digite a opção desejada:");
+				opcao=ler.nextInt();
+				ler.nextLine();
 				switch(opcao) {
 					case 1:
 						editarNome();

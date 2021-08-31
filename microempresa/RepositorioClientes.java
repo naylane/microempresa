@@ -1,10 +1,15 @@
 package microempresa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RepositorioClientes {
 	
 	private List <Cliente> listaDeClientes;
+	
+	public RepositorioClientes() {
+		this.listaDeClientes=new ArrayList<>();
+	}
 	
 	public Cliente getCliente(long codigoDoCliente) {
 		for (Cliente cliente : this.listaDeClientes) {

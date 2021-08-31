@@ -133,6 +133,7 @@ public class InterfaceVenda {
 	
 	private List<Venda> exibirTodasVendas() {
 		System.out.println("Essas são todas as vendas:");
+		System.out.println(this.repositorioVenda.exibirTodasVendas());
 		return this.repositorioVenda.exibirTodasVendas();
 	}
 	

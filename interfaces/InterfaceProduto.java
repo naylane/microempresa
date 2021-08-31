@@ -95,10 +95,11 @@ public class InterfaceProduto {
 		boolean repete=false;
 		
 		do {
-			System.out.println("Digite o codigo do produto:");
+			System.out.println("Digite o codigo do produto que deseja selecionar:");
 			codigo = this.ler.nextInt();
 			ler.nextLine();
 			produtoSelecionado = this.repositorioProduto.getProduto(codigo);
+			System.out.println("Esse foi o produto selecionado: " + produtoSelecionado);
 			
 			if(produtoSelecionado==null) {
 				System.out.println("Produto não encontrado. Se deseja tentar novamente, digite 'sim'");
@@ -152,6 +153,9 @@ public class InterfaceProduto {
 				System.out.println("1- Editar a quantidade");
 				System.out.println("2- Editar o preço");
 				System.out.println("0- Sair");
+				System.out.println("Digite a opção desejada:");
+				opcao = ler.nextInt();
+				ler.nextLine();
 				
 				switch(opcao) {
 					case 1:
@@ -169,14 +173,26 @@ public class InterfaceProduto {
 
 	
 	private void editarQuantidade() {
+		boolean operacaoCancelada=false;
+		boolean confirmacao;
 		int quantidadeNova;
 		Produto produtoSelecionado = this.selecionarProduto();
 		
-		System.out.println("Digite a nova quantidade que deseja alterar:");
-		quantidadeNova = ler.nextInt();
-		ler.nextLine();
-		produtoSelecionado.setQuantidade(quantidadeNova);
-		System.out.println("A quantidade do produto foi alterada com sucesso!");
+		do {
+			System.out.println("Digite a nova quantidade que deseja alterar:");
+			quantidadeNova = ler.nextInt();
+			ler.nextLine();
+			System.out.println("Tem certeza que deseja alterar esse produto?: " + produtoSelecionado);
+			System.out.println("Digite 'sim' para continuar ou 'cancelar' para cancelar a ação:");
+			String respostaDeConfirmacao = ler.nextLine();
+			confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
+			operacaoCancelada = respostaDeConfirmacao.equalsIgnoreCase("cancelar");
+		}while(!(confirmacao || operacaoCancelada));
+		
+		if(confirmacao) {
+			produtoSelecionado.setQuantidade(quantidadeNova);
+			System.out.println("A quantidade do produto foi alterada com sucesso!");
+		}
 	}
 	
 		
@@ -194,7 +210,9 @@ public class InterfaceProduto {
 		
 	private List<Produto> exibirTodosProdutos() {
 		System.out.println("Esses são todos os atuais produtos cadastrados no sistema:");
+		System.out.println(this.repositorioProduto.exibirTodosProdutos());
 		return this.repositorioProduto.exibirTodosProdutos();
+		
 	}
 	
 	

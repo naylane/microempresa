@@ -43,5 +43,15 @@ public class Produto {
 	public void setQuantidade(int quantidadeNova) {
 		
 	}
+	
+	public String toString() {
+		String nomeDoProduto=this.nomeDoProduto;
+		int quantidade=this.quantidade;
+		int preco=this.preco;
+		int codigo=this.codigo;
+		
+		return " |Codigo: "+codigo+"; "+"Produto: "+nomeDoProduto+"; "+"Preço: "+preco+"; "+"Quantidade: "+quantidade+"| ";
+		
+	}
 
 }

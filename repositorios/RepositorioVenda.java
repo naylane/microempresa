@@ -34,7 +34,7 @@ public class RepositorioVenda {
 	
 	
 	public List<Venda> exibirTodasVendas(){
-		return this.listaDeVendas;
+		return new ArrayList<>(listaDeVendas);
 	}
 
 

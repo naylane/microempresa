@@ -1,5 +1,7 @@
 package interfaces;
 
+
+import java.util.List;
 import java.util.Scanner;
 
 import microempresa.Cliente;
@@ -10,7 +12,7 @@ import microempresa.RepositorioClientes;
 public class InterfaceCliente {
 	
 	private RepositorioClientes repositorioClientes;
-	private Scanner ler;
+	public Scanner ler;
 	
 	public InterfaceCliente (RepositorioClientes repositorioCliente, Scanner ler) {
 		this.ler = ler;	
@@ -25,8 +27,9 @@ public class InterfaceCliente {
 			System.out.println("1- Adicionar cliente");
 			System.out.println("2- Selecionar cliente");
 			System.out.println("3- Remover cliente");
+			System.out.println("4- Exibir lista de clientes");
 			System.out.println("0- Voltar para o menu principal");	
-			System.out.println("Selecione a opção desejada:");
+			System.out.println("Selecione a opção desejada: ");
 			opcao = ler.nextInt();
 			switch(opcao) {
 			
@@ -39,9 +42,17 @@ public class InterfaceCliente {
 			case 3:
 			  removerCliente();
 			  break;
+			case 4:
+			  exibirClientes();
 			}
 		} while (opcao != 0);
 			
+	}
+	
+	private List<Cliente> exibirClientes() {
+		System.out.println("Esses são todos os clientes que foram cadastrados no sistema: ");
+		return this.repositorioClientes.exibirClientes();
+		
 	}
 	
 	public Cliente selecionarCliente() {
@@ -156,10 +167,10 @@ public class InterfaceCliente {
 				
 				switch(opcao) {
 					case 1:
-						editarNome();
+						editarNome(clienteSelecionado);
 						break;
 					case 2:
-						editarOEndereco();
+						editarOEndereco(clienteSelecionado);
 						break;
 				}
 
@@ -168,12 +179,20 @@ public class InterfaceCliente {
 
 	}
 
-	private void editarNome() {
-		
+	private void editarNome(Cliente cliente) {
+		System.out.println("Digite seu novo nome de usuário: ");
+		String novoNome = ler.nextLine();
+		cliente.setnomeDoCliente(novoNome);	
 	}
 	
-	private void editarOEndereco() {
+	private void editarOEndereco(Cliente cliente) {
+		System.out.println("Digite seu novo endereço: ");
+		String novoEndereco = ler.nextLine();
+		cliente.setendereco(novoEndereco);
+			
+	}
+			
+}
 	
-	}
-		
-	}
+
+

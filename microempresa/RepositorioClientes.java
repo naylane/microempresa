@@ -24,5 +24,9 @@ public class RepositorioClientes {
 	 this.listaDeClientes.add(cliente);
 		
 	}
+
+	public List<Cliente> exibirClientes() {
+		return this.listaDeClientes;
+	}
 		
 }

@@ -65,11 +65,11 @@ public class InterfaceProduto {
 		do {
 			System.out.println("Qual o nome do produto que deseja adicionar?");
 			nomeDoProduto = ler.nextLine();
-			System.out.println("Digite o preço da unidade:");
+			System.out.println("Digite o preço da unidade: ");
 			preco = ler.nextInt();
-			System.out.println("Digite a quantidade do produto:");
+			System.out.println("Digite a quantidade do produto: ");
 			quantidade = ler.nextInt();
-			System.out.println("Por favor, confirme os dados a seguir:");
+			System.out.println("Por favor, confirme os dados a seguir: ");
 			System.out.println("Produto: " + nomeDoProduto + " Preço: " + preco + " Quantidade: " + quantidade);
 			System.out.println("Se os dados estão corretos, digite 'sim'. Para cancelar a ação, digite 'cancelar'");
 			String respostaDeConfirmacao = ler.nextLine();
@@ -143,7 +143,7 @@ public class InterfaceProduto {
 		if(produtoSelecionado!=null) { // usuário não cancelou
 			
 			do {
-				System.out.println("Essas são os dados que você pode editar:");
+				System.out.println("Essas são os dados que você pode editar: ");
 				System.out.println("1- Editar a quantidade");
 				System.out.println("2- Editar o preço");
 				System.out.println("0- Sair");
@@ -174,7 +174,7 @@ public class InterfaceProduto {
 	
 		
 	private List<Produto> exibirTodosProdutos() {
-		System.out.println("Esses são todos os atuais produtos cadastrados no sistema:");
+		System.out.println("Esses são todos os atuais produtos cadastrados no sistema: ");
 		return this.repositorioProduto.exibirTodosProdutos();
 	}
 	

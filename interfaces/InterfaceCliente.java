@@ -179,7 +179,7 @@ public class InterfaceCliente {
 						editarNome(clienteSelecionado);
 						break;
 					case 2:
-						editarOEndereco(clienteSelecionado);
+						editarEndereco(clienteSelecionado);
 						break;
 				}
 
@@ -194,7 +194,7 @@ public class InterfaceCliente {
 		cliente.setnomeDoCliente(novoNome);	
 	}
 	
-	private void editarOEndereco(Cliente cliente) {
+	private void editarEndereco(Cliente cliente) {
 		System.out.println("Digite seu novo endereço: ");
 		String novoEndereco = ler.nextLine();
 		cliente.setendereco(novoEndereco);

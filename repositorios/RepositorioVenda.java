@@ -1,5 +1,6 @@
 package repositorios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import microempresa.Venda;
@@ -7,6 +8,10 @@ import microempresa.Venda;
 public class RepositorioVenda {
 	
 	private List<Venda>listaDeVendas;
+	
+	public RepositorioVenda() {
+		this.listaDeVendas = new ArrayList<>();
+	}
 	
 	public Venda getVenda(int codigo) {
 		for (Venda venda : this.listaDeVendas) {
@@ -29,7 +34,7 @@ public class RepositorioVenda {
 	
 	
 	public List<Venda> exibirTodasVendas(){
-		return this.listaDeVendas;
+		return new ArrayList<>(listaDeVendas);
 	}
 
 

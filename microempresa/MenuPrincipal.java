@@ -38,6 +38,7 @@ public class MenuPrincipal {
 			System.out.println("0- Sair");
 			System.out.println("Selecione a opção desejada:");
 			opcao = ler.nextInt();
+			ler.nextLine();
 			
 			switch(opcao) {
 				case 1: 

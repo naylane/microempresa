@@ -43,5 +43,12 @@ public class Venda {
 	public Date getDataDeEmissao() {
 		return dataDeEmissao;
 	}
+	
+	public String toString() {
+		int codigo=this.codigo;
+		int valor=this.valor;
+		
+		return " |Codigo: "+codigo+"; "+"Valor: "+valor+"| ";
+	}
 
 }

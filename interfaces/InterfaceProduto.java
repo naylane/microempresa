@@ -34,6 +34,7 @@ public class InterfaceProduto {
 			System.out.println("0- Voltar para o menu principal");	
 			System.out.println("Selecione a opção desejada:");
 			opcao = ler.nextInt();
+			ler.nextLine();
 			
 			switch(opcao) {
 				case 1:
@@ -67,10 +68,19 @@ public class InterfaceProduto {
 			nomeDoProduto = ler.nextLine();
 			System.out.println("Digite o preço da unidade: ");
 			preco = ler.nextInt();
+<<<<<<< HEAD
 			System.out.println("Digite a quantidade do produto: ");
 			quantidade = ler.nextInt();
 			System.out.println("Por favor, confirme os dados a seguir: ");
 			System.out.println("Produto: " + nomeDoProduto + " Preço: " + preco + " Quantidade: " + quantidade);
+=======
+			ler.nextLine();
+			System.out.println("Digite a quantidade do produto:");
+			quantidade = ler.nextInt();
+			ler.nextLine();
+			System.out.println("Por favor, confirme os dados a seguir:");
+			System.out.println("Produto: " + nomeDoProduto + "; Preço: " + preco + "; Quantidade: " + quantidade);
+>>>>>>> main
 			System.out.println("Se os dados estão corretos, digite 'sim'. Para cancelar a ação, digite 'cancelar'");
 			String respostaDeConfirmacao = ler.nextLine();
 			confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
@@ -81,6 +91,7 @@ public class InterfaceProduto {
 			Produto produto = null;
 			produto = new Produto(nomeDoProduto, preco, quantidade);
 			this.repositorioProduto.adicionarProduto(produto);
+			System.out.println("Produto adicionado com sucesso!");
 		}
 	}
 	
@@ -91,9 +102,11 @@ public class InterfaceProduto {
 		boolean repete=false;
 		
 		do {
-			System.out.println("Digite o codigo do produto:");
+			System.out.println("Digite o codigo do produto que deseja selecionar:");
 			codigo = this.ler.nextInt();
+			ler.nextLine();
 			produtoSelecionado = this.repositorioProduto.getProduto(codigo);
+			System.out.println("Esse foi o produto selecionado: " + produtoSelecionado);
 			
 			if(produtoSelecionado==null) {
 				System.out.println("Produto não encontrado. Se deseja tentar novamente, digite 'sim'");
@@ -147,6 +160,9 @@ public class InterfaceProduto {
 				System.out.println("1- Editar a quantidade");
 				System.out.println("2- Editar o preço");
 				System.out.println("0- Sair");
+				System.out.println("Digite a opção desejada:");
+				opcao = ler.nextInt();
+				ler.nextLine();
 				
 				switch(opcao) {
 					case 1:
@@ -164,18 +180,50 @@ public class InterfaceProduto {
 
 	
 	private void editarQuantidade() {
+		boolean operacaoCancelada=false;
+		boolean confirmacao;
+		int quantidadeNova;
+		Produto produtoSelecionado = this.selecionarProduto();
 		
+		do {
+			System.out.println("Digite a nova quantidade que deseja alterar:");
+			quantidadeNova = ler.nextInt();
+			ler.nextLine();
+			System.out.println("Tem certeza que deseja alterar esse produto?: " + produtoSelecionado);
+			System.out.println("Digite 'sim' para continuar ou 'cancelar' para cancelar a ação:");
+			String respostaDeConfirmacao = ler.nextLine();
+			confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
+			operacaoCancelada = respostaDeConfirmacao.equalsIgnoreCase("cancelar");
+		}while(!(confirmacao || operacaoCancelada));
+		
+		if(confirmacao) {
+			produtoSelecionado.setQuantidade(quantidadeNova);
+			System.out.println("A quantidade do produto foi alterada com sucesso!");
+		}
 	}
 	
 		
 	private void editarPreco() {
+			int precoNovo;
+			Produto produtoSelecionado = this.selecionarProduto();
 			
+			System.out.println("Digite o novo preço que deseja alterar:");
+			precoNovo = ler.nextInt();
+			ler.nextLine();
+			produtoSelecionado.setPreco(precoNovo);
+			System.out.println("O preço do produto foi alterado com sucesso!");	
 	}
 	
 		
 	private List<Produto> exibirTodosProdutos() {
+<<<<<<< HEAD
 		System.out.println("Esses são todos os atuais produtos cadastrados no sistema: ");
+=======
+		System.out.println("Esses são todos os atuais produtos cadastrados no sistema:");
+		System.out.println(this.repositorioProduto.exibirTodosProdutos());
+>>>>>>> main
 		return this.repositorioProduto.exibirTodosProdutos();
+		
 	}
 	
 	

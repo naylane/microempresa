@@ -1,5 +1,6 @@
 package microempresa;
 
+import repositorios.RepositorioClientes;
 import repositorios.RepositorioProduto;
 import repositorios.RepositorioVenda;
 

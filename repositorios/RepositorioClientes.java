@@ -1,11 +1,13 @@
-package microempresa;
+package repositorios;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import microempresa.Cliente;
+
 public class RepositorioClientes {
 	
-	private List <Cliente> listaDeClientes;
+	private List<Cliente> listaDeClientes;
 	
 	public RepositorioClientes() {
 		this.listaDeClientes=new ArrayList<>();
@@ -26,12 +28,12 @@ public class RepositorioClientes {
 	}
 	
 	public void removerCliente(Cliente cliente) {
-	 this.listaDeClientes.add(cliente);
+	 this.listaDeClientes.remove(cliente);
 		
 	}
 
 	public List<Cliente> exibirClientes() {
-		return this.listaDeClientes;
+		return new ArrayList<>(listaDeClientes);
 	}
 		
 }

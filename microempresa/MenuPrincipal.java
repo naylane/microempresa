@@ -5,6 +5,7 @@ import java.util.Scanner;
 import interfaces.InterfaceCliente;
 import interfaces.InterfaceProduto;
 import interfaces.InterfaceVenda;
+import repositorios.RepositorioClientes;
 import repositorios.RepositorioProduto;
 import repositorios.RepositorioVenda;
 

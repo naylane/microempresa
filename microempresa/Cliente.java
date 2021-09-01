@@ -53,7 +53,7 @@ public class Cliente {
 		
 	}
 	
-	public void setcpf(long cpf) {
+	 void setcpf(long cpf) {
 		this.cpf = cpf;
 	
 	}
@@ -64,7 +64,7 @@ public class Cliente {
 		
 	}
 	
-	public void setcodigoDoCliente(Long codigoDoCliente) {
+	public void setcodigoDoCliente(long codigoDoCliente) {
 		this.codigoDoCliente = codigoDoCliente;
 	
 	}
@@ -75,12 +75,21 @@ public class Cliente {
 		
 	}
 	
-	public void setcodigo(Long codigo) {
+	public void setcodigo(int codigo) {
 		this.codigoDoCliente = codigo;
 	}
 
-	
+	public String toString() {
+		String nomeDoCliente=this.nomeDoCliente;
+		long cpf=this.cpf;
+		long numeroDeCelular=this.numeroDeCelular;
+		long codigoDoCliente=this.codigoDoCliente;
+		String endereco=this.endereco;
+		
+		return " Nome: " + nomeDoCliente + "; CPF: " + cpf + "; Numero de celular: " + numeroDeCelular + "; Codigo do cliente: " + codigoDoCliente + "; Endereço: " + endereco + "";
+	}
 }
+
 
 
 

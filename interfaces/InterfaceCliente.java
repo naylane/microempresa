@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import microempresa.Cliente;
-import microempresa.RepositorioClientes;
+import repositorios.RepositorioClientes;
 
 
 
@@ -26,9 +26,9 @@ public class InterfaceCliente {
 			System.out.println("---- Gereciamento de Clientes ----");
 			System.out.println("Essas são as opções:");
 			System.out.println("1- Adicionar cliente");
-			System.out.println("2- Selecionar cliente");
-			System.out.println("3- Remover cliente");
-			System.out.println("4- Exibir lista de clientes");
+			System.out.println("2- Remover cliente");
+			System.out.println("3- Exibir lista de clientes");
+			System.out.println("4- Editar cliente");
 			System.out.println("0- Voltar para o menu principal");	
 			System.out.println("Selecione a opção desejada: ");
 			opcao = ler.nextInt();
@@ -39,35 +39,37 @@ public class InterfaceCliente {
 			  adicionarCliente();
 			  break;
 			case 2:
-			  selecionarCliente();
-			  break;
-			case 3:
 			  removerCliente();
 			  break;
-			case 4:
+			case 3:
 			  exibirClientes();
+			  break;
+			case 4:
+			  editarCliente();
 			}
 		} while (opcao != 0);
 			
 	}
 	
-	private List<Cliente> exibirClientes() {
+	private List <Cliente> exibirClientes() {
 		System.out.println("Esses são todos os clientes que foram cadastrados no sistema: ");
+		System.out.println(this.repositorioClientes.exibirClientes());
 		return this.repositorioClientes.exibirClientes();
 		
 	}
 	
+		
 	public Cliente selecionarCliente() {
 		long codigoDoCliente;
 		Cliente clienteSelecionado;
-        boolean repete=false;
-		
+	    boolean repete=false;
+			
 		do {
 			System.out.println("Digite o codigo do Usuário/cliente: ");
 			codigoDoCliente = this.ler.nextLong();
 			ler.nextLine();
 			clienteSelecionado = this.repositorioClientes.getCliente(codigoDoCliente);
-			
+				
 			if(clienteSelecionado==null) {
 				System.out.println("Cliente/usuário não encontrado. Se deseja tentar novamente, digite 'sim'");
 				String respostaDeConfirmacao = ler.nextLine();
@@ -78,13 +80,14 @@ public class InterfaceCliente {
 					repete=false;
 				}
 			}else {
-				repete=false;
+				 repete=false;
 			}
 		}while(repete);	
 		return clienteSelecionado;
-	}
 		
 		
+    }
+			
 	
 	boolean operacaoCancelada=false;
 	boolean operacaoConfirmada;
@@ -106,6 +109,7 @@ public class InterfaceCliente {
 			System.out.println("Digite o número de celular: ");
 			numeroDeCelular = ler.nextLong();
 			ler.nextLine();
+			System.out.println("Nome: " + nomeDoCliente + "; CPF: " + cpf + "; Endereço: " + endereco + "; Numero de celular: " + numeroDeCelular +"");
 			System.out.println("Deseja adicionar esta conta? ");
 			String resposta = ler.nextLine();
 			operacaoConfirmada = resposta.equalsIgnoreCase("sim");
@@ -117,6 +121,7 @@ public class InterfaceCliente {
 			Cliente cliente = null;
 			cliente = new Cliente(nomeDoCliente, cpf, numeroDeCelular, endereco);
 			this.repositorioClientes.adicionarCliente(cliente);
+			System.out.println("Conta adicinada com sucesso!");
 		}
 		
 	}
@@ -126,32 +131,18 @@ public class InterfaceCliente {
 		boolean operacaoCancelada=false;
 		boolean operacaoConfirmada;
 		
-		String nomeDoCliente;
-		long cpf;
-		String endereco;
-		long numeroDeCelular;
+		Cliente clienteSelecionado = this.selecionarCliente();
 		
 		do {
-			System.out.println("Digite o nome do Cliente/Usuário: ");
-			nomeDoCliente = ler.nextLine();
-			System.out.println("Digite o seu CPF: ");
-			cpf = ler.nextLong();
-			ler.nextLine();
-			System.out.println("Digite o seu endereço: ");
-			endereco = ler.nextLine();
-			System.out.println("Digite o número de celular: ");
-			numeroDeCelular = ler.nextLong();
-			ler.nextLine();
-			System.out.println("Gostaria de remover o cliente?");
+			System.out.println("Tem certeza que deseja remover este usuário/cliente? ");
 			String resposta = ler.nextLine();
 			operacaoConfirmada = resposta.equalsIgnoreCase("Sim");
 			operacaoCancelada = resposta.equalsIgnoreCase("não");
 		}while(!(operacaoConfirmada || operacaoCancelada));
 		
 		if (operacaoConfirmada) {
-			Cliente cliente = null;
-			cliente = new Cliente(nomeDoCliente, cpf, numeroDeCelular, endereco);
-			this.repositorioClientes.removerCliente(cliente);
+			this.repositorioClientes.removerCliente(clienteSelecionado);
+			System.out.println("Cliente removido com sucesso");
 			
 	
 			

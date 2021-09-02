@@ -27,7 +27,7 @@ public class InterfaceVenda {
 			System.out.println("---- Gerenciamento de Vendas ----");
 			System.out.println("Essas são as opções disponivéis:");
 			System.out.println("1- Adicionar Venda");
-			System.out.println("2- Remover Venda");
+			System.out.println("2- Estornar Venda");
 			System.out.println("3- Exibir todas as vendas");
 			System.out.println("0- Sair");
 			System.out.println("Digite o número da opção desejada:");
@@ -38,7 +38,7 @@ public class InterfaceVenda {
 					adicionarVenda();
 					break;
 				case 2: 
-					removerVenda();
+					estornarVenda();
 					break;
 				case 3:
 					exibirTodasVendas();
@@ -108,14 +108,14 @@ public class InterfaceVenda {
 	}
 	
 	
-	private void removerVenda() {
+	private void estornarVenda() { // incompleto
 		Venda vendaSelecionada = this.selecionarVenda();
 		
 		
 		if(vendaSelecionada!=null) {
 			
 			do {
-				System.out.println("Tem certeza que deseja remover essa venda?");
+				System.out.println("Tem certeza que deseja estornar essa venda?");
 				System.out.println("Digite 'sim' para remover ou 'cancelar' para cancelar a ação.");
 				String respostaDeConfirmacao = ler.nextLine();
 				confirmacao = respostaDeConfirmacao.equalsIgnoreCase("sim");
@@ -124,8 +124,8 @@ public class InterfaceVenda {
 		}
 		
 		if(confirmacao) {
-			this.repositorioVenda.removerVenda(vendaSelecionada);
-			System.out.println("Venda removida com sucesso.");
+			this.repositorioVenda.estornarVenda(vendaSelecionada);
+			System.out.println("Venda estornada com sucesso.");
 		}
 		
 	}
@@ -134,6 +134,7 @@ public class InterfaceVenda {
 	private List<Venda> exibirTodasVendas() {
 		System.out.println("Essas são todas as vendas:");
 		System.out.println(this.repositorioVenda.exibirTodasVendas());
+		
 		return this.repositorioVenda.exibirTodasVendas();
 	}
 	

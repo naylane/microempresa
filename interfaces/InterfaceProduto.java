@@ -209,7 +209,7 @@ public class InterfaceProduto {
 	
 	private Produto exibirProduto() {
 		Produto produtoSelecionado = this.selecionarProduto();
-				
+		
 		return produtoSelecionado;
 	}
 		

@@ -28,8 +28,8 @@ public class RepositorioVenda {
 	}
 	
 	
-	public void removerVenda(Venda venda) {
-		this.listaDeVendas.remove(venda);
+	public void estornarVenda(Venda venda) { // incompleto
+		
 	}
 	
 	

@@ -1,4 +1,5 @@
 package view;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +12,10 @@ public class AdicionarProduto extends CamposProduto {
 
 	public AdicionarProduto(GerenciadorMenuProduto gerenciadorMenuProduto, RepositorioProduto repositorioProduto) {
 		super(gerenciadorMenuProduto); // ???
+		
+		this.setBackground(Color.GREEN);
+		super.setBounds(5, 5, 424, 251);
+		
 		AdicionarProduto esseAdicionarProduto = this;
 		
 		JButton btnNewButton = new JButton("Adicionar");

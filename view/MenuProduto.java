@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -10,8 +12,11 @@ import java.awt.event.ActionEvent;
 public class MenuProduto extends JPanel {
 
 	public MenuProduto(GerenciadorMenuProduto gerenciadorMenuProduto) {
-		
+
+		super.setBounds(5, 5, 424, 251);
+		super.setBackground(Color.BLUE);
 		setLayout(null);
+		
 		
 		JButton btnNewButton = new JButton("Adicionar produto");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -41,6 +46,6 @@ public class MenuProduto extends JPanel {
 		});
 		btnNewButton_4.setBounds(180, 142, 165, 23);
 		add(btnNewButton_4);
-
+		
 	}
 }

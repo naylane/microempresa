@@ -11,41 +11,58 @@ import java.awt.event.ActionEvent;
 
 public class MenuProduto extends JPanel {
 
-	public MenuProduto(GerenciadorMenuProduto gerenciadorMenuProduto) {
+	public MenuProduto(GerenciadorProduto gerenciadorProduto) {
 
-		super.setBounds(5, 5, 424, 251);
+		super.setBounds(5, 5, 700, 500);
 		super.setBackground(Color.BLUE);
 		setLayout(null);
-		
-		
-		JButton btnNewButton = new JButton("Adicionar produto");
-		btnNewButton.addActionListener(new ActionListener() {
+
+		JButton btnAdicionar = new JButton("Adicionar produto");
+		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gerenciadorMenuProduto.selecionarMenuAdicionar();
+				gerenciadorProduto.selecionarMenuAdicionar();
 			}
 		});
-		btnNewButton.setBounds(10, 63, 117, 23);
-		add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Remover produto");
-		btnNewButton_1.setBounds(180, 63, 117, 23);
-		add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Editar produto");
-		btnNewButton_2.setBounds(339, 63, 101, 23);
-		add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("Exibir um produto");
-		btnNewButton_3.setBounds(10, 142, 117, 23);
-		add(btnNewButton_3);
-		
-		JButton btnNewButton_4 = new JButton("Exibir todos produtos");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		btnAdicionar.setBounds(10, 63, 117, 23);
+		add(btnAdicionar);
+
+		// Alex
+		JButton btnRemover = new JButton("Remover produto");
+		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				gerenciadorProduto.selecionarMenuRemover();
 			}
 		});
-		btnNewButton_4.setBounds(180, 142, 165, 23);
-		add(btnNewButton_4);
-		
+		btnRemover.setBounds(180, 63, 117, 23);
+		add(btnRemover);
+
+		// Erica
+		JButton bntEditar = new JButton("Editar produto");
+		bntEditar.setBounds(339, 63, 101, 23);
+		bntEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gerenciadorProduto.selecionarMenuEditar();
+			}
+		});
+		add(bntEditar);
+
+		// Nay
+		JButton btnExibirUmProduto = new JButton("Exibir um produto");
+        btnExibirUmProduto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                gerenciadorProduto.selecionarMenuExibirProduto();
+            }
+        });
+
+		// Samuel
+		JButton btnExibirTodosProdutos = new JButton("Exibir todos produtos");
+		btnExibirTodosProdutos.setBounds(180, 142, 165, 23);
+		btnExibirTodosProdutos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gerenciadorProduto.selecionarMenuExibirTodosProdutos();
+			}
+		});
+		add(btnExibirTodosProdutos);
+
 	}
 }

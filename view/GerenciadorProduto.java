@@ -6,14 +6,15 @@ import javax.swing.JPanel;
 
 import repositorios.RepositorioProduto;
 
-public class GerenciadorMenuProduto extends JPanel {
+public class GerenciadorProduto extends JPanel {
 
 	private MenuProduto menuProduto;
 	private RepositorioProduto repositorioProduto;
 	private JPanel painelAtual;
 	
-	public GerenciadorMenuProduto(RepositorioProduto repositorioProduto) {
+	public GerenciadorProduto(RepositorioProduto repositorioProduto) {
 		super.setLayout(null);
+		
 		super.setBackground(Color.RED);
 		
 		
@@ -23,41 +24,41 @@ public class GerenciadorMenuProduto extends JPanel {
 		
 		
 		
-		trocarSubPainel(this.menuProduto);
+		this.trocarSubPainel(this.menuProduto);
 	}
 	
-	public void trocarSubPainel(JPanel jP) {
+	public void trocarSubPainel(JPanel novoPainel) {
 		if (painelAtual!=null) {
 			super.remove(this.painelAtual);
 		}
-		painelAtual = jP;
-		super.add(jP);
+		super.add(novoPainel);
+		painelAtual = novoPainel;
 		super.repaint();
 	}
 	
 	public void selecionarMenuProduto() {
-		trocarSubPainel(menuProduto);
+		this.trocarSubPainel(menuProduto);
 	}
 	
 	public void selecionarMenuAdicionar() {
-		AdicionarProduto adicionarProduto = new AdicionarProduto(this, this.repositorioProduto);
-		trocarSubPainel(adicionarProduto);
+		AdicionarProduto painelAdicionarProduto = new AdicionarProduto(this, this.repositorioProduto);
+		this.trocarSubPainel(painelAdicionarProduto);
 	}
 	
 	public void selecionarMenuRemover() {
-		
+		//alex
 	}
 
 	public void selecionarMenuEditar() {
-	
+		//erica
 	}
 
 	public void selecionarMenuExibirProduto() {
-	
+		//nay
 	}
 	
 	public void selecionarMenuExibirTodosProdutos() {
-		
+		//samuel
 	}
 
 }

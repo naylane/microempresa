@@ -10,25 +10,25 @@ import repositorios.RepositorioProduto;
 
 public class AdicionarProduto extends CamposProduto {
 
-	public AdicionarProduto(GerenciadorMenuProduto gerenciadorMenuProduto, RepositorioProduto repositorioProduto) {
-		super(gerenciadorMenuProduto); // ???
+	public AdicionarProduto(GerenciadorProduto gerenciadorProduto, RepositorioProduto repositorioProduto) {
+		super(gerenciadorProduto); // ???
 		
 		this.setBackground(Color.GREEN);
-		super.setBounds(5, 5, 424, 251);
 		
-		AdicionarProduto esseAdicionarProduto = this;
 		
-		JButton btnNewButton = new JButton("Adicionar");
-		btnNewButton.addActionListener(new ActionListener() {
+		AdicionarProduto essePainelDeAdicionarProduto = this;
+		
+		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Produto produto = esseAdicionarProduto.lerProduto();
+				Produto produto = essePainelDeAdicionarProduto.lerProduto();
 				repositorioProduto.adicionarProduto(produto);
 				
-				gerenciadorMenuProduto.selecionarMenuProduto();
+				gerenciadorProduto.selecionarMenuProduto();
 			}
 		});
-		btnNewButton.setBounds(351, 266, 89, 23);
-		add(btnNewButton);
+		btnAdicionar.setBounds(351, 266, 89, 23);
+		add(btnAdicionar);
 
 	}
 

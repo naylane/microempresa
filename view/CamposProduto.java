@@ -17,8 +17,9 @@ public class CamposProduto extends JPanel {
 	private JLabel lblNewLabel_3;
 	private JTextField tFCodigo;
 
-	public CamposProduto(GerenciadorMenuProduto gerenciadorMenuProduto) {
+	public CamposProduto(GerenciadorProduto gerenciadorProduto) {
 
+		super.setBounds(5, 5, 700, 600);
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Nome do produto:");
@@ -57,14 +58,14 @@ public class CamposProduto extends JPanel {
 		add(tFCodigo);
 		tFCodigo.setColumns(10);
 
-		JButton btnNewButton_1 = new JButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gerenciadorMenuProduto.selecionarMenuProduto();
+				gerenciadorProduto.selecionarMenuProduto();
 			}
 		});
-		btnNewButton_1.setBounds(252, 266, 89, 23);
-		add(btnNewButton_1);
+		btnCancelar.setBounds(252, 266, 89, 23);
+		add(btnCancelar);
 	}
 	
 	protected Produto lerProduto() {
